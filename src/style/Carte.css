@@ -1,0 +1,154 @@
+
+
+.pokemon-card[data-type="Fire"] { background-image: url('/src/style/Ffire.webp'); }
+.pokemon-card[data-type="Dark"] { background-image: url('/src/style/Fdark.webp'); }
+.pokemon-card[data-type="Dragon"] { background-image: url('/src/style/Fdragon.webp'); }
+.pokemon-card[data-type="Fairy"] { background-image: url('/src/style/Ffairy.webp'); }
+.pokemon-card[data-type="Ghost"] { background-image: url('/src/style/Fghost.webp'); }
+.pokemon-card[data-type="Normal"] { background-image: url('/src/style/Fnormal.webp'); }
+.pokemon-card[data-type="Rock"] { background-image: url('/src/style/Frock.webp'); }
+.pokemon-card[data-type="Steel"] { background-image: url('/src/style/Fsteel.webp'); }
+.pokemon-card[data-type="Grass"] { background-image: url('/src/style/Fplante.webp'); }
+.pokemon-card[data-type="Water"] { background-image: url('/src/style/Fwater.webp'); }
+.pokemon-card[data-type="Electric"] { background-image: url('/src/style/Felec.webp'); }
+.pokemon-card[data-type="Bug"] { background-image: url('/src/style/Fbuds.webp'); }
+.pokemon-card[data-type="Fighting"] { background-image: url('/src/style/Ffighting.webp'); }
+.pokemon-card[data-type="Flying"] { background-image: url('/src/style/Fflying.webp'); }
+.pokemon-card[data-type="Ground"] { background-image: url('/src/style/Fground.webp'); }
+.pokemon-card[data-type="Ice"] { background-image: url('/src/style/Fice.webp'); }
+.pokemon-card[data-type="Poison"] { background-image: url('/src/style/Fpoison.webp'); }
+.pokemon-card[data-type="Psychic"] { background-image: url('/src/style/Fpsychic.webp'); }
+
+
+.pokemon-card {
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 340px; /* Réduction de la largeur */
+  text-align: center;
+  padding: 15px;
+  transition: all 0.3s ease-in-out;
+  background: url("../style/Fplante.webp") no-repeat center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* Affichage sous forme de pokedex */
+.pokedex-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  align-items: start;
+}
+
+.card-header {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid #064420;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ajout du style pour le nom du Pokémon */
+.pokemon-name {
+  font-size: 1.8em; /* Taille du texte */
+  font-weight: bold;
+  /*color: #ffcc00; /* Couleur jaune */
+  color: #000000;
+  text-transform: uppercase; /* Optionnel : mettre en majuscule */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Optionnel : ombre pour lisibilité */
+}
+
+.card-image-container {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  height: 175px; /* Ajustement indépendant de l'image */
+}
+
+.pokemon-image {
+  max-width: 65%; /* Ajustement indépendant de la taille de l'image */
+  height: auto;
+}
+
+.card-stats {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid #064420;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stats-title {
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.stats-grid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+}
+
+.stat-block {
+  background: rgba(255, 255, 255, 0.8);
+  font-weight: bold;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  font-size: 0.9em;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+}
+
+.stat-block img {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+}
+/* Barre de recherche */
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1em;
+  border: 2px solid #064420;
+  border-radius: 10px;
+  outline: none;
+}
