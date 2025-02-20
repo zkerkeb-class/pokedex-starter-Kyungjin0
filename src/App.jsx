@@ -1,35 +1,31 @@
-import { useState } from 'react';
 import pokemons from './assets/pokemons';
 import './App.css';
 import Carte from './component/carte/Carte';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Pokedex from './Pages/Pokedex';
+import './App.css';
 
 function App() {
-  
-  const [search, setSearch] = useState("");
-
-  // Filtrer les Pokémon en fonction de la barre de recherche
-  const filteredPokemons = pokemons.filter(pokemon => 
-    pokemon.name.french.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
-    <div>
-      {/* Barre de recherche */}
-      <p>Barre de recherche</p>
-      <div className="search-bar">
-        <input type="text"
-          placeholder="Rechercher un Pokémon..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pokedex" element={<Pokedex />} />
+        </Routes>
       </div>
-      
-      {/* Affichage du Pokédex */}
-      <div className="pokedex-container">
-        {filteredPokemons.slice(0, 150).map((pokemon, index) => (
-          <Carte key={index} pokemon={pokemon} />
-        ))}
-      </div>
+    </Router>
+  );
+}
+
+function Home() {
+  return (
+    <div className="Home">
+      <h1>Welcome to the Pokedex</h1>
+      <p>Click the link below to view the Pokedex:</p>
+      <Link to="/pokedex">Go to Pokedex</Link>
     </div>
   );
 }

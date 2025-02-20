@@ -1,8 +1,8 @@
 import "../../style/Carte.css";
-import {useState, useEffect} from "react";
 
 
-const Carte = ({ pokemon }) => {
+
+const Carte = ({ pokemon, addPokemon, updatePokemon }) => {
   return (
     <div className="pokemon-card" data-type={pokemon.type[0]}>
       {/* En-tête : Nom et Type */}
@@ -22,7 +22,6 @@ const Carte = ({ pokemon }) => {
 
       {/* Section des stats */}
       <div className="card-stats">
-        <h2 className="stats-title">Stats</h2>
         <div className="stats-grid">
           <div className="stat-block">
             <span>🧡{pokemon.base.HP}</span>
