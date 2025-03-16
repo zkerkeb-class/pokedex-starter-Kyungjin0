@@ -5,7 +5,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Pokedex from './Pages/Pokedex';
-import './App.css';
+import Gestionnaire from './Pages/Gestionnaire';
+import Home from './Pages/Home';
 
 function App() {
   return (
@@ -14,20 +15,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/pokedex" element={<Pokedex />} />
+          <Route path="/gestionnaire" element={<Gestionnaire />} />
         </Routes>
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return (
-    <div className="Home">
-      <h1>Welcome to the Pokedex</h1>
-      <p>Click the link below to view the Pokedex:</p>
-      <Link to="/pokedex">Go to Pokedex</Link>
-    </div>
-  );
-}
 
 export default App;
