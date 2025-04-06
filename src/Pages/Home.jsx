@@ -1,18 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import '../App.css';
+import { Link } from 'react-router-dom';
+import '../style/Home.css';
 
-
-function Home() {
+const Home = () => {
   return (
-    <div className="Home">
-      <h1>Home</h1>
-      <div className='links'>
-        <Link to="/pokedex">View</Link>
-        <Link to="/gestionnaire">Gestionnaire</Link>
+    <div className="page-container">
+      <h1 className="home-title">Bienvenue sur le Pokédex</h1>
+      <div className="links-container">
+        <Link to="/pokedex" className="home-link">
+          Pokédex
+        </Link>
+        <Link to="/comparateur" className="home-link">
+          Comparateur
+        </Link>
+        <Link to="/duel" className="home-link">
+          Arène de Combat
+        </Link>
+        <Link to="/admin" className="home-link">
+          Administration
+        </Link>
       </div>
     </div>
   );
-}
+};
 
 export default Home;

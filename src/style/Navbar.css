@@ -1,0 +1,67 @@
+/* Reset des marges par défaut */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: rgb(255, 208, 208);
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.nav-link {
+  color: #2a75bb;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background: none;
+  border: 2px solid #2a75bb;
+}
+
+.nav-link:hover {
+  background-color: #2a75bb;
+  color: rgb(25, 25, 25);
+}
+
+.logout-button {
+  background-color: #ff4444;
+  border: 2px solid #ff4444;
+  color: rgb(18, 18, 18);
+
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 0;
+
+}
+
+.logout-button:hover {
+  background-color: #ff0000;
+  border-color: #ff0000;
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
+}
+
