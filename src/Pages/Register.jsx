@@ -1,56 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../style/AdminLogin.css';
+import '../style/Login.css';
 
-const AdminLogin = () => {
+const Register = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
     const navigate = useNavigate();
-
-    // Vérifier si l'utilisateur est déjà connecté
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        const isAdmin = localStorage.getItem('isAdmin') === 'true';
-        if (token && isAdmin) {
-            navigate('/gestionnaire');
-        }
-    }, [navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        setSuccess('');
+
+        if (password !== confirmPassword) {
+            setError('Les mots de passe ne correspondent pas');
+            return;
+        }
 
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/login', {
+            const response = await axios.post('http://localhost:3000/api/users/register', {
                 username,
                 password
             });
-
-            setSuccess('Connexion administrateur réussie ! Redirection...');
-
-            // Attendre 1.5 secondes avant de rediriger
-            setTimeout(() => {
-                localStorage.setItem('token', response.data.token);
-                localStorage.setItem('user', JSON.stringify(response.data.user));
-                localStorage.setItem('isAdmin', 'true'); // Définir explicitement comme admin
-                navigate('/gestionnaire');
-            }, 1500);
-
+            
+            // Connexion automatique après l'inscription
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user', JSON.stringify(response.data.user));
+            
+            // Redirection vers la page d'accueil
+            navigate('/');
         } catch (err) {
-            setError(err.response?.data?.message || 'Erreur de connexion administrateur');
+            setError(err.response?.data?.message || 'Erreur lors de l\'inscription');
         }
     };
 
     return (
-        <div className="admin-login-container">
-            <div className="admin-login-card">
-                <h2>Administration</h2>
+        <div className="login-container">
+            <div className="login-card">
+                <h2>Créer un compte</h2>
                 {error && <div className="error-message">{error}</div>}
-                {success && <div className="success-message">{success}</div>}
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="username">Nom d'utilisateur</label>
@@ -72,13 +62,21 @@ const AdminLogin = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="admin-login-button">
-                        Se connecter
-                    </button>
+                    <div className="form-group">
+                        <label htmlFor="confirmPassword">Confirmer le mot de passe</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="login-button">S'inscrire</button>
                 </form>
             </div>
         </div>
     );
 };
 
-export default AdminLogin; 
+export default Register; 

@@ -7,7 +7,12 @@ import Gestionnaire from './Pages/Gestionnaire';
 import Comparateur from './Pages/Comparateur';
 import AdminLogin from './Pages/AdminLogin';
 import Duel from './Pages/Duel';
+import Login from './Pages/Login';
+import Register from './Pages/Register';
 import ProtectedRoute from './components/ProtectedRoute';
+import Tirage from './Pages/Tirage';
+
+
 import './App.css';
 
 function App() {
@@ -16,6 +21,21 @@ function App() {
       <Routes>
         {/* Page d'accueil sans Navbar */}
         <Route path="/" element={<Home />} />
+
+        {/* Routes d'authentification avec Navbar */}
+        <Route path="/login" element={
+          <>
+            <Navbar />
+            <Login />
+          </>
+        } />
+
+        <Route path="/register" element={
+          <>
+            <Navbar />
+            <Register />
+          </>
+        } />
 
         {/* Routes avec Navbar */}
         <Route path="/pokedex" element={
@@ -39,10 +59,19 @@ function App() {
           </>
         } />
 
+        <Route path="/tirage" element={
+          <>
+            <Navbar />
+            <Tirage />
+          </>
+        } />
+
         <Route path="/admin" element={
           <>
             <Navbar />
-            <AdminLogin />
+            <div style={{ backgroundColor: '#000000', minHeight: '100vh', paddingTop: '60px' }}>
+              <AdminLogin />
+            </div>
           </>
         } />
 

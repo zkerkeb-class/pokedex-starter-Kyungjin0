@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../style/AdminLogin.css';
+import { Link, useNavigate } from 'react-router-dom';
+import '../style/Login.css';
 
-const AdminLogin = () => {
+const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -13,9 +13,8 @@ const AdminLogin = () => {
     // Vérifier si l'utilisateur est déjà connecté
     useEffect(() => {
         const token = localStorage.getItem('token');
-        const isAdmin = localStorage.getItem('isAdmin') === 'true';
-        if (token && isAdmin) {
-            navigate('/gestionnaire');
+        if (token) {
+            navigate('/pokedex');
         }
     }, [navigate]);
 
@@ -23,32 +22,32 @@ const AdminLogin = () => {
         e.preventDefault();
         setError('');
         setSuccess('');
-
+        
         try {
-            const response = await axios.post('http://localhost:3000/api/auth/login', {
+            const response = await axios.post('http://localhost:3000/api/users/login', {
                 username,
                 password
             });
-
-            setSuccess('Connexion administrateur réussie ! Redirection...');
-
-            // Attendre 1.5 secondes avant de rediriger
+            
+            setSuccess('Connexion réussie ! Redirection...');
+            
+            // Attendre 1.5 secondes avant de rediriger pour montrer le message de succès
             setTimeout(() => {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
-                localStorage.setItem('isAdmin', 'true'); // Définir explicitement comme admin
-                navigate('/gestionnaire');
+                localStorage.setItem('isAdmin', 'false'); // Explicitement définir comme non-admin
+                navigate('/pokedex');
             }, 1500);
-
+            
         } catch (err) {
-            setError(err.response?.data?.message || 'Erreur de connexion administrateur');
+            setError(err.response?.data?.message || 'Erreur de connexion');
         }
     };
 
     return (
-        <div className="admin-login-container">
-            <div className="admin-login-card">
-                <h2>Administration</h2>
+        <div className="login-container">
+            <div className="login-card">
+                <h2>Connexion</h2>
                 {error && <div className="error-message">{error}</div>}
                 {success && <div className="success-message">{success}</div>}
                 <form onSubmit={handleSubmit}>
@@ -72,13 +71,14 @@ const AdminLogin = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="admin-login-button">
-                        Se connecter
-                    </button>
+                    <button type="submit" className="login-button">Se connecter</button>
                 </form>
+                <div className="register-link">
+                    Pas encore de compte ? <Link to="/register">Créer un compte</Link>
+                </div>
             </div>
         </div>
     );
 };
 
-export default AdminLogin; 
+export default Login; 

@@ -16,7 +16,10 @@ const Home = () => {
         <Link to="/duel" className="home-link">
           Arène de Combat
         </Link>
-        <Link to="/admin" className="home-link">
+        <Link to="/login" className="home-link login">
+          Connexion
+        </Link>
+        <Link to="/admin" className="home-link admin">
           Administration
         </Link>
       </div>
