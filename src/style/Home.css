@@ -1,0 +1,84 @@
+/* Conteneur principal de la page */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement */
+  height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  width: 100vw; /* Prend toute la largeur de la fenêtre */
+  background-color: #000; /* Fond noir */
+  color: #fff; /* Texte blanc */
+  text-align: center; /* Centre le texte */
+  padding: 0; /* Supprime les marges intérieures */
+  margin: 0; /* Supprime les marges extérieures */
+  box-sizing: border-box; /* Inclut les bordures et paddings dans la largeur */
+ 
+}
+
+/* Titre principal */
+.home-title {
+  font-size: 3rem; /* Taille du titre */
+  font-weight: bold; /* Texte en gras */
+  margin-bottom: 2rem; /* Espacement sous le titre */
+  text-transform: uppercase; /* Met le texte en majuscules */
+  letter-spacing: 2px; /* Espacement entre les lettres */
+  color: #fff; /* Texte blanc */
+}
+
+/* Conteneur des liens */
+.links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacement entre les boutons */
+  width: 100%;
+  max-width: 400px; /* Limite la largeur des boutons */
+  align-items: center; /* Centre les boutons horizontalement */
+}
+
+/* Style des liens et boutons */
+.home-link {
+  background-color: transparent; /* Fond transparent */
+  color: #fff; /* Texte blanc */
+  border: 2px solid #fff; /* Contour blanc */
+  border-radius: 50px; /* Coins arrondis */
+  padding: 1rem 2rem; /* Espacement interne */
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold; /* Texte en gras */
+  transition: all 0.3s ease; /* Transition pour les effets */
+  cursor: pointer;
+  width: 100%; /* Les boutons prennent toute la largeur du conteneur */
+  max-width: 300px; /* Limite la largeur des boutons */
+  box-sizing: border-box; /* Inclut les bordures dans la largeur */
+}
+
+/* Effet au survol */
+.home-link:hover {
+  background-color: #fff; /* Fond blanc */
+  color: #000; /* Texte noir */
+  transform: scale(1.1); /* Agrandit légèrement le bouton */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Ajoute une ombre lumineuse */
+}
+
+/* Bouton de déconnexion */
+.logout-button {
+  border: 2px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  border-radius: 50px; /* Coins arrondis */
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.logout-button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.1); /* Agrandit légèrement le bouton */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Ajoute une ombre lumineuse */
+}

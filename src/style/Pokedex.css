@@ -1,0 +1,170 @@
+/* Conteneur principal de la page */
+.pokedex-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre horizontalement */
+  justify-content: flex-start; /* Aligne le contenu en haut */
+  min-height: 100vh; /* Prend toute la hauteur de la fenêtre */
+  width: 100%; /* Prend toute la largeur de la fenêtre */
+  background-color: #242424; /* Fond noir */
+  color: rgba(255, 255, 255, 0.87); /* Texte blanc */
+  text-align: center;
+  padding: 1rem; /* Ajoute un peu de marge intérieure */
+  box-sizing: border-box; /* Inclut les bordures et paddings dans la largeur */
+
+}
+.top-page {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 100px;
+
+}
+
+.top-page h1 {
+
+  color: #f5e61a;
+  font-size: 2.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #555;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
+
+}
+
+.search-bar input,
+.search-bar select {
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+ 
+
+}
+
+.search-bar input {
+  width: 300px;
+  
+}
+
+.search-bar input:focus,
+.search-bar select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Conteneur des cartes Pokémon */
+.pokedex-container {
+  display: flex;
+  flex-wrap: wrap; /* Permet de passer à la ligne si nécessaire */
+  justify-content: center; /* Centre les cartes horizontalement */
+  gap: 1.5rem; /* Espacement entre les cartes */
+  width: 100%;
+  max-width: 1200px; /* Limite la largeur totale */
+  padding: 1rem;
+  box-sizing: border-box;
+
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #4CAF50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 1.2em;
+}
+
+.retry-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.retry-button:hover {
+  background-color: #45a049;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+  }
+  
+  .pokedex-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .pokedex-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+ 
