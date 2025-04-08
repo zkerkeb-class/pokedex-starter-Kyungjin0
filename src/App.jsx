@@ -9,7 +9,7 @@ import AdminLogin from './Pages/AdminLogin';
 import Duel from './Pages/Duel';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
-import ProtectedRoute from './components/ProtectedRoute';
+import ProtectedRoute from './component/ProtectedRoute';
 import Tirage from './Pages/Tirage';
 
 

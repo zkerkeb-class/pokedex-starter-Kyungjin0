@@ -10,6 +10,7 @@ const Gestionnaire = () => {
   const [pokemons, setPokemons] = useState([]);
   console.log(pokemons);
   const [newPokemon, setNewPokemon] = useState({ 
+    id: "",
     name: { french: "", english: "", japanese: "" }, 
     type: "", 
     base: { HP: "", Attack: "", Defense: "", "SpAttack": "", "SpDefense": "", Speed: "" }, 
@@ -147,6 +148,7 @@ const Gestionnaire = () => {
       }
 
       const pokemonData = {
+        id: parseInt(newPokemon.id),
         name: {
           french: newPokemon.name.french,
           english: newPokemon.name.english,
@@ -175,6 +177,7 @@ const Gestionnaire = () => {
       if (response.data) {
         await loadPokemons();
         setNewPokemon({ 
+          id: "",
           name: { french: "", english: "", japanese: "", chinese: "" }, 
           type: "", 
           base: { HP: "", Attack: "", Defense: "", SpAttack: "", SpDefense: "", Speed: "" }, 
@@ -299,6 +302,7 @@ const Gestionnaire = () => {
       <div className="section ajout">
         <h2>Ajouter un Pokémon</h2>
         <form onSubmit={addPokemon} className="form">
+          <input type="number" placeholder="ID" value={newPokemon.id} onChange={(e) => setNewPokemon({ ...newPokemon, id: e.target.value })} required />
           <input type="text" placeholder="Nom Français" value={newPokemon.name.french} onChange={(e) => setNewPokemon({ ...newPokemon, name: { ...newPokemon.name, french: e.target.value } })} required />
           <input type="text" placeholder="Nom Anglais" value={newPokemon.name.english} onChange={(e) => setNewPokemon({ ...newPokemon, name: { ...newPokemon.name, english: e.target.value } })} required />
           <input type="text" placeholder="Nom Japonais" value={newPokemon.name.japanese} onChange={(e) => setNewPokemon({ ...newPokemon, name: { ...newPokemon.name, japanese: e.target.value } })} required />
